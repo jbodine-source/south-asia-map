@@ -1,0 +1,493 @@
+
+<div id="south-asia-activity">
+  <style>
+    #south-asia-activity {
+      font-family: Arial, sans-serif;
+      color: #243447;
+      max-width: 1050px;
+      margin: auto;
+    }
+    #south-asia-activity h2 {
+      text-align: center;
+      color: #234d65;
+    }
+    #south-asia-activity .instructions {
+      text-align: center;
+      background: #edf4f6;
+      padding: 14px;
+      border-radius: 9px;
+      margin-bottom: 15px;
+    }
+    #south-asia-activity .map-wrap {
+      background: #e5f2f5;
+      border: 2px solid #9bbbc5;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    #south-asia-activity svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    #south-asia-activity .land {
+      fill: #e9dfc4;
+      stroke: #877e65;
+      stroke-width: 2;
+    }
+    #south-asia-activity .mountain {
+      fill: none;
+      stroke: #817b6b;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+    #south-asia-activity .river {
+      fill: none;
+      stroke: #399bc2;
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+    #south-asia-activity .water-label {
+      fill: #347b9a;
+      font-size: 16px;
+      font-style: italic;
+      font-weight: bold;
+    }
+    #south-asia-activity .map-label {
+      fill: #665e4b;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    #south-asia-activity .pin {
+      cursor: pointer;
+      outline: none;
+    }
+    #south-asia-activity .pin circle {
+      fill: #b74c39;
+      stroke: white;
+      stroke-width: 3;
+      transition: fill .15s, r .15s;
+    }
+    #south-asia-activity .pin:hover circle,
+    #south-asia-activity .pin:focus circle {
+      fill: #e49b27;
+      stroke: #273c4b;
+    }
+    #south-asia-activity .pin.visited circle {
+      fill: #36845c;
+    }
+    #south-asia-activity .pin text {
+      fill: white;
+      font-size: 12px;
+      font-weight: bold;
+      text-anchor: middle;
+      dominant-baseline: central;
+      pointer-events: none;
+    }
+    #south-asia-activity .info {
+      background: #f3f6f7;
+      border: 2px solid #b9cbd0;
+      border-radius: 10px;
+      padding: 18px;
+      margin-top: 15px;
+      min-height: 115px;
+    }
+    #south-asia-activity .info h3 {
+      color: #245c75;
+      margin-top: 0;
+    }
+    #south-asia-activity .progress {
+      text-align: center;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    #south-asia-activity .progress-track {
+      height: 12px;
+      background: #d9e2e5;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    #south-asia-activity .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #36845c;
+      transition: width .2s;
+    }
+    #south-asia-activity .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 8px;
+      margin-top: 15px;
+    }
+    #south-asia-activity button {
+      cursor: pointer;
+      border: 1px solid #9aadb4;
+      border-radius: 7px;
+      padding: 10px;
+      background: white;
+      color: #243447;
+      font-size: 14px;
+    }
+    #south-asia-activity button:hover {
+      background: #e8f2f4;
+    }
+    #south-asia-activity .feature-list button.selected {
+      background: #dceee2;
+      border-color: #36845c;
+      font-weight: bold;
+    }
+    #south-asia-activity .reset {
+      display: block;
+      margin: 15px auto;
+      background: #285b72;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+    }
+    #south-asia-activity .reset:hover {
+      background: #193e50;
+    }
+    #south-asia-activity .hint {
+      font-size: 12px;
+      color: #596a70;
+      text-align: center;
+    }
+  </style>
+
+  <h2>Exploring the Geography of South Asia</h2>
+
+  <div class="instructions">
+    <strong>Directions:</strong> Explore the map by clicking each numbered
+    location. Read the description to learn about the physical geography
+    of South Asia. Find all 11 geographic features!
+  </div>
+
+  <div class="map-wrap">
+    <svg viewBox="0 0 900 650"
+         role="group"
+         aria-label="Interactive schematic map of South Asia">
+
+      <!-- Water background -->
+      <rect width="900" height="650" fill="#e5f2f5"/>
+
+      <!-- Mainland South Asia -->
+      <path class="land"
+        d="M 130,170
+           L 190,125 260,115 330,125 390,105
+           L 470,120 530,115 600,145
+           L 670,175 710,220 750,260
+           L 735,310 715,355 690,405
+           L 670,460 645,515 610,560
+           L 575,590 540,560 510,525
+           L 475,490 450,450 420,410
+           L 390,365 350,325 305,295
+           L 255,270 210,255 165,230
+           L 125,205 Z"/>
+
+      <!-- Northwestern region -->
+      <path class="land"
+        d="M 80,110 L 190,85 260,115
+           L 190,170 130,205 90,170 Z"/>
+
+      <!-- Himalayan mountain region -->
+      <path class="mountain"
+        d="M 185,145 L 225,132 265,145
+           L 305,132 345,145 385,132
+           L 425,146 465,132 505,150
+           L 550,158 595,175 640,195"/>
+
+      <path class="mountain"
+        d="M 205,158 L 240,145 275,158
+           L 315,145 355,158 395,145
+           L 435,160 475,145 515,163
+           L 555,170 595,187"/>
+
+      <!-- Hindu Kush -->
+      <path class="mountain"
+        d="M 90,125 L 120,105 150,120
+           L 175,100 205,118 230,110"/>
+
+      <!-- Western Ghats -->
+      <path class="mountain"
+        d="M 300,275 L 290,325 300,370
+           L 290,420 300,465 315,510"/>
+
+      <!-- Eastern Ghats -->
+      <path class="mountain"
+        d="M 495,310 L 515,350 510,395
+           L 530,435 525,475 545,510"/>
+
+      <!-- Thar Desert -->
+      <path d="M 205,235 Q 250,200 300,235
+               Q 315,275 275,290
+               Q 225,280 205,235 Z"
+            fill="#d9bd83" opacity=".75"/>
+
+      <!-- Indus River -->
+      <path class="river"
+        d="M 165,155 Q 185,200 205,240
+           Q 220,280 215,325
+           Q 230,365 250,400"/>
+
+      <!-- Ganges River -->
+      <path class="river"
+        d="M 360,245 Q 425,245 470,265
+           Q 520,270 565,290
+           Q 600,300 650,315"/>
+
+      <!-- Other river delta -->
+      <path class="river"
+        d="M 650,315 Q 670,335 680,355
+           M 650,315 Q 655,350 650,375"/>
+
+      <!-- Geographic region labels -->
+      <text x="400" y="350" class="map-label">INDIA</text>
+      <text x="115" y="295" class="map-label">PAKISTAN</text>
+      <text x="610" y="390" class="map-label">BANGLADESH</text>
+      <text x="400" y="115" class="map-label">NEPAL / BHUTAN</text>
+      <text x="95" y="85" class="map-label">AFGHANISTAN</text>
+      <text x="720" y="200" class="map-label">MYANMAR</text>
+
+      <!-- Water labels -->
+      <text x="50" y="450" class="water-label">Arabian Sea</text>
+      <text x="410" y="625" class="water-label">Indian Ocean</text>
+      <text x="700" y="480" class="water-label">Bay of Bengal</text>
+
+      <!-- Clickable locations -->
+      <g class="pin" data-id="himalayas" tabindex="0"
+         role="button" aria-label="1. Himalayas">
+        <circle cx="410" cy="145" r="16"/>
+        <text x="410" y="145">1</text>
+      </g>
+
+      <g class="pin" data-id="hindukush" tabindex="0"
+         role="button" aria-label="2. Hindu Kush Mountains">
+        <circle cx="155" cy="115" r="16"/>
+        <text x="155" y="115">2</text>
+      </g>
+
+      <g class="pin" data-id="thar" tabindex="0"
+         role="button" aria-label="3. Thar Desert">
+        <circle cx="260" cy="245" r="16"/>
+        <text x="260" y="245">3</text>
+      </g>
+
+      <g class="pin" data-id="indus" tabindex="0"
+         role="button" aria-label="4. Indus River">
+        <circle cx="205" cy="335" r="16"/>
+        <text x="205" y="335">4</text>
+      </g>
+
+      <g class="pin" data-id="ganges" tabindex="0"
+         role="button" aria-label="5. Ganges River">
+        <circle cx="500" cy="270" r="16"/>
+        <text x="500" y="270">5</text>
+      </g>
+
+      <g class="pin" data-id="deccan" tabindex="0"
+         role="button" aria-label="6. Deccan Plateau">
+        <circle cx="420" cy="400" r="16"/>
+        <text x="420" y="400">6</text>
+      </g>
+
+      <g class="pin" data-id="western" tabindex="0"
+         role="button" aria-label="7. Western Ghats">
+        <circle cx="295" cy="405" r="16"/>
+        <text x="295" y="405">7</text>
+      </g>
+
+      <g class="pin" data-id="eastern" tabindex="0"
+         role="button" aria-label="8. Eastern Ghats">
+        <circle cx="525" cy="420" r="16"/>
+        <text x="525" y="420">8</text>
+      </g>
+
+      <g class="pin" data-id="arabian" tabindex="0"
+         role="button" aria-label="9. Arabian Sea">
+        <circle cx="95" cy="390" r="16"/>
+        <text x="95" y="390">9</text>
+      </g>
+
+      <g class="pin" data-id="bengal" tabindex="0"
+         role="button" aria-label="10. Bay of Bengal">
+        <circle cx="735" cy="390" r="16"/>
+        <text x="735" y="390">10</text>
+      </g>
+
+      <g class="pin" data-id="ocean" tabindex="0"
+         role="button" aria-label="11. Indian Ocean">
+        <circle cx="465" cy="570" r="16"/>
+        <text x="465" y="570">11</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="info" aria-live="polite" aria-atomic="true">
+    <h3 id="sa-title">Welcome, Geographers!</h3>
+    <p id="sa-description">
+      Select any numbered location on the map to discover its name
+      and learn why it is important to the geography of South Asia.
+    </p>
+  </div>
+
+  <div class="progress">
+    <span id="sa-count">0 of 11 features explored</span>
+    <div class="progress-track">
+      <div class="progress-fill" id="sa-progress"></div>
+    </div>
+  </div>
+
+  <h3>Explore the Geographic Features</h3>
+  <p>Alternatively, select a feature below to locate it on the map.</p>
+
+  <div class="feature-list" id="sa-feature-list"></div>
+
+  <button class="reset" id="sa-reset" type="button">
+    Reset Activity
+  </button>
+
+  <p class="hint">
+    Map is a simplified geographic illustration and is not drawn to scale.
+    Use the numbered locations to explore the features.
+  </p>
+
+  <script>
+  (function () {
+    const root = document.getElementById('south-asia-activity');
+    if (!root) return;
+
+    const features = {
+      himalayas: {
+        name: "1. Himalayas",
+        description: "The Himalayas are a massive mountain range along the northern border of India. They include Mount Everest, the world's highest mountain. These mountains influence climate by blocking cold air and helping produce rainfall."
+      },
+      hindukush: {
+        name: "2. Hindu Kush Mountains",
+        description: "The Hindu Kush is a rugged mountain range located mainly in Afghanistan and extending into northern Pakistan. It forms part of the mountainous landscape northwest of the Indian subcontinent and has historically influenced travel and trade."
+      },
+      thar: {
+        name: "3. Thar Desert",
+        description: "The Thar Desert, also called the Great Indian Desert, is located in northwestern India and southeastern Pakistan. It is a hot, dry region with sandy dunes and limited rainfall."
+      },
+      indus: {
+        name: "4. Indus River",
+        description: "The Indus River begins in the Tibetan Plateau and flows through the Himalayas and Pakistan before emptying into the Arabian Sea. The Indus Valley was home to one of the world's earliest civilizations, including the cities of Harappa and Mohenjo-Daro."
+      },
+      ganges: {
+        name: "5. Ganges River",
+        description: "The Ganges River begins in the Himalayas and flows across northern India and Bangladesh. It provides water for farming and millions of people. It is also a sacred river in Hinduism."
+      },
+      deccan: {
+        name: "6. Deccan Plateau",
+        description: "The Deccan Plateau is a large, elevated region covering much of southern India. It is bordered by the Western and Eastern Ghats. Its elevation and landscape influence the region's rivers, climate, and agriculture."
+      },
+      western: {
+        name: "7. Western Ghats",
+        description: "The Western Ghats are a mountain range running along the western side of India. They influence rainfall by forcing moist winds from the Arabian Sea upward, creating wet conditions on their western slopes."
+      },
+      eastern: {
+        name: "8. Eastern Ghats",
+        description: "The Eastern Ghats are a discontinuous mountain range along India's eastern coast. They border the Deccan Plateau and are separated in places by rivers flowing toward the Bay of Bengal."
+      },
+      arabian: {
+        name: "9. Arabian Sea",
+        description: "The Arabian Sea is part of the northern Indian Ocean. It lies west of India and borders the western coast of the Indian subcontinent. It has been an important route for trade and transportation."
+      },
+      bengal: {
+        name: "10. Bay of Bengal",
+        description: "The Bay of Bengal is located east of India and west of Myanmar. It is the northeastern part of the Indian Ocean. The Ganges and Brahmaputra river systems empty into it, forming a large delta."
+      },
+      ocean: {
+        name: "11. Indian Ocean",
+        description: "The Indian Ocean is the third-largest ocean in the world. It borders South Asia to the south and has connected the region to Africa, the Middle East, and Southeast Asia through trade and travel for centuries."
+      }
+    };
+
+    const visited = new Set();
+    const title = root.querySelector('#sa-title');
+    const description = root.querySelector('#sa-description');
+    const count = root.querySelector('#sa-count');
+    const progress = root.querySelector('#sa-progress');
+    const list = root.querySelector('#sa-feature-list');
+
+    function selectFeature(id) {
+      const feature = features[id];
+      if (!feature) return;
+
+      title.textContent = feature.name;
+      description.textContent = feature.description;
+
+      visited.add(id);
+
+      root.querySelectorAll('.pin').forEach(pin => {
+        pin.classList.toggle('visited', pin.dataset.id === id &&
+          visited.has(id));
+      });
+
+      root.querySelectorAll('.feature-list button').forEach(button => {
+        button.classList.toggle(
+          'selected',
+          button.dataset.id === id
+        );
+      });
+
+      count.textContent =
+        visited.size + " of 11 features explored";
+
+      progress.style.width = (visited.size / 11 * 100) + "%";
+
+      if (visited.size === 11) {
+        title.textContent = "Great Work, Geographer!";
+        description.textContent =
+          "You have explored all 11 geographic features of South Asia. " +
+          "You are ready to demonstrate your knowledge of the region!";
+      }
+    }
+
+    // Make map markers clickable and keyboard accessible.
+    root.querySelectorAll('.pin').forEach(pin => {
+      pin.addEventListener('click', () => {
+        selectFeature(pin.dataset.id);
+      });
+
+      pin.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          selectFeature(pin.dataset.id);
+        }
+      });
+    });
+
+    // Build the alternative feature buttons.
+    Object.keys(features).forEach(id => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.dataset.id = id;
+      button.textContent = features[id].name;
+      button.addEventListener('click', () => selectFeature(id));
+      list.appendChild(button);
+    });
+
+    // Reset the activity.
+    root.querySelector('#sa-reset').addEventListener('click', () => {
+      visited.clear();
+
+      root.querySelectorAll('.pin').forEach(pin => {
+        pin.classList.remove('visited');
+      });
+
+      root.querySelectorAll('.feature-list button').forEach(button => {
+        button.classList.remove('selected');
+      });
+
+      title.textContent = "Welcome, Geographers!";
+      description.textContent =
+        "Select any numbered location on the map to discover its name " +
+        "and learn why it is important to the geography of South Asia.";
+
+      count.textContent = "0 of 11 features explored";
+      progress.style.width = "0%";
+    });
+  })();
+  </script>
+</div>
