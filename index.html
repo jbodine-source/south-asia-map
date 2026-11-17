@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>South Asia Geography Challenge</title>
 
 <style>
@@ -15,17 +14,14 @@ body {
   margin: 0;
   padding: 15px;
 }
-
 #activity {
   max-width: 850px;
   margin: auto;
 }
-
 h2 {
   text-align: center;
   color: #244e67;
 }
-
 .instructions {
   background: #e7f0f2;
   padding: 14px;
@@ -33,16 +29,12 @@ h2 {
   text-align: center;
   line-height: 1.5;
 }
-
-/* QUIZ SCORE */
-
 .scoreboard {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin: 15px 0;
 }
-
 .score-box {
   background: white;
   border: 2px solid #bdcdd1;
@@ -50,7 +42,6 @@ h2 {
   padding: 12px;
   text-align: center;
 }
-
 .score-number {
   display: block;
   font-size: 27px;
@@ -58,9 +49,6 @@ h2 {
   color: #285b72;
   margin-top: 5px;
 }
-
-/* QUESTION */
-
 .question-panel {
   background: #285b72;
   color: white;
@@ -69,19 +57,16 @@ h2 {
   text-align: center;
   margin: 15px 0;
 }
-
 .question-panel h3 {
   margin: 5px 0 10px;
   font-size: 21px;
 }
-
 .question-name {
   font-size: 25px;
   font-weight: bold;
   color: #ffdf8a;
   margin: 8px 0;
 }
-
 .feedback {
   min-height: 25px;
   text-align: center;
@@ -89,9 +74,6 @@ h2 {
   margin: 12px 0;
   line-height: 1.4;
 }
-
-/* MAP */
-
 .map-container {
   position: relative;
   width: 100%;
@@ -101,13 +83,11 @@ h2 {
   overflow: hidden;
   background: white;
 }
-
 .map-container img {
   display: block;
   width: 100%;
   height: auto;
 }
-
 .marker {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -124,30 +104,23 @@ h2 {
   box-shadow: 0 1px 5px #333;
   z-index: 2;
 }
-
 .marker:hover,
 .marker:focus {
   background: #e6a126;
   outline: 3px solid #244e67;
 }
-
 .marker.correct {
   background: #36835b;
   cursor: default;
 }
-
 .marker.incorrect {
   background: #b83d32;
 }
-
-/* PROGRESS */
-
 .progress-section {
   text-align: center;
   margin: 15px 0;
   font-weight: bold;
 }
-
 .progress-bar {
   height: 13px;
   background: #d9e1e3;
@@ -155,16 +128,12 @@ h2 {
   overflow: hidden;
   margin-top: 8px;
 }
-
 .progress-fill {
   height: 100%;
   width: 0%;
   background: #36835b;
   transition: width .3s;
 }
-
-/* BUTTONS */
-
 .action-button {
   display: block;
   margin: 18px auto;
@@ -176,16 +145,9 @@ h2 {
   font-size: 15px;
   cursor: pointer;
 }
-
 .action-button:hover {
   background: #193e50;
 }
-
-.action-button:disabled {
-  opacity: .5;
-  cursor: not-allowed;
-}
-
 .completion {
   background: #e0eee4;
   border: 2px solid #36835b;
@@ -194,15 +156,12 @@ h2 {
   text-align: center;
   margin-top: 15px;
 }
-
 .completion h3 {
   color: #286b46;
 }
-
 .hidden {
   display: none;
 }
-
 .footer {
   text-align: center;
   color: #66777c;
@@ -213,423 +172,347 @@ h2 {
 </head>
 
 <body>
-
 <div id="activity">
 
 <h2>South Asia Geography Challenge</h2>
 
 <div class="instructions">
-  <strong>Directions:</strong>
-  Read the name of the geographic feature in the question box.
-  Find its location on the map and click the numbered circle.
-  You must identify all 11 features!
+<strong>Directions:</strong>
+Read the name of the geographic feature in the question box.
+Find its location on the map and click the numbered circle.
+Identify all 12 features!
 </div>
-
-<!-- SCOREBOARD -->
 
 <div class="scoreboard">
-
   <div class="score-box">
     Correct Answers
-    <span class="score-number" id="score">0 / 11</span>
+    <span class="score-number" id="score">0 / 12</span>
   </div>
-
   <div class="score-box">
     Questions Completed
-    <span class="score-number" id="completed">0 / 11</span>
+    <span class="score-number" id="completed">0 / 12</span>
   </div>
-
 </div>
 
-<!-- QUESTION -->
-
-<div class="question-panel" id="question-panel">
-
-  <div id="question-number">QUESTION 1 OF 11</div>
-
+<div class="question-panel">
+  <div id="question-number">QUESTION 1 OF 12</div>
   <h3>Find this geographic feature:</h3>
-
-  <div class="question-name" id="question-name">
-    Loading...
-  </div>
-
+  <div class="question-name" id="question-name">Loading...</div>
 </div>
 
 <div class="feedback" id="feedback" aria-live="polite">
-  Click the numbered circle on the map that identifies this feature.
+Click the numbered circle that identifies this feature.
 </div>
 
-<!-- MAP -->
-
+<!-- CLASSROOM MAP -->
 <div class="map-container">
 
-  <img src="south-asia-map.png"
-       alt="Classroom map of South Asia">
+<img src="south-asia-map.png"
+     alt="Classroom map of South Asia">
 
-  <!-- 1 HIMALAYAS -->
-  <button class="marker"
-    style="left:59%; top:23%;"
-    data-id="himalayas"
-    aria-label="Map location 1">1</button>
+<!-- 1 HIMALAYAS -->
+<button class="marker"
+ style="left:59%; top:23%;"
+ data-id="himalayas"
+ aria-label="Map location 1">1</button>
 
-  <!-- 2 HINDU KUSH -->
-  <button class="marker"
-    style="left:34%; top:31%;"
-    data-id="hindukush"
-    aria-label="Map location 2">2</button>
+<!-- 2 HINDU KUSH -->
+<button class="marker"
+ style="left:34%; top:31%;"
+ data-id="hindukush"
+ aria-label="Map location 2">2</button>
 
-  <!-- 3 THAR DESERT -->
-  <button class="marker"
-    style="left:47%; top:44%;"
-    data-id="thar"
-    aria-label="Map location 3">3</button>
+<!-- 3 THAR DESERT -->
+<button class="marker"
+ style="left:47%; top:44%;"
+ data-id="thar"
+ aria-label="Map location 3">3</button>
 
-  <!-- 4 INDUS RIVER -->
-  <button class="marker"
-    style="left:42%; top:38%;"
-    data-id="indus"
-    aria-label="Map location 4">4</button>
+<!-- 4 INDUS RIVER -->
+<button class="marker"
+ style="left:42%; top:38%;"
+ data-id="indus"
+ aria-label="Map location 4">4</button>
 
-  <!-- 5 GANGES RIVER -->
-  <button class="marker"
-    style="left:67%; top:41%;"
-    data-id="ganges"
-    aria-label="Map location 5">5</button>
+<!-- 5 GANGES RIVER: MOVED RIGHT TO BLUE DASHED LINE -->
+<button class="marker"
+ style="left:76%; top:38%;"
+ data-id="ganges"
+ aria-label="Map location 5">5</button>
 
-  <!-- 6 DECCAN PLATEAU -->
-  <button class="marker"
-    style="left:64%; top:68%;"
-    data-id="deccan"
-    aria-label="Map location 6">6</button>
+<!-- 6 DECCAN PLATEAU -->
+<button class="marker"
+ style="left:64%; top:68%;"
+ data-id="deccan"
+ aria-label="Map location 6">6</button>
 
-  <!-- 7 WESTERN GHATS -->
-  <button class="marker"
-    style="left:57%; top:68%;"
-    data-id="western"
-    aria-label="Map location 7">7</button>
+<!-- 7 WESTERN GHATS -->
+<button class="marker"
+ style="left:57%; top:68%;"
+ data-id="western"
+ aria-label="Map location 7">7</button>
 
-  <!-- 8 EASTERN GHATS -->
-  <button class="marker"
-    style="left:75%; top:66%;"
-    data-id="eastern"
-    aria-label="Map location 8">8</button>
+<!-- 8 EASTERN GHATS -->
+<button class="marker"
+ style="left:75%; top:66%;"
+ data-id="eastern"
+ aria-label="Map location 8">8</button>
 
-  <!-- 9 ARABIAN SEA -->
-  <button class="marker"
-    style="left:19%; top:66%;"
-    data-id="arabian"
-    aria-label="Map location 9">9</button>
+<!-- 9 ARABIAN SEA: MOVED SOUTH INTO WATER -->
+<button class="marker"
+ style="left:19%; top:73%;"
+ data-id="arabian"
+ aria-label="Map location 9">9</button>
 
-  <!-- 10 BAY OF BENGAL -->
-  <button class="marker"
-    style="left:86%; top:69%;"
-    data-id="bengal"
-    aria-label="Map location 10">10</button>
+<!-- 10 BAY OF BENGAL -->
+<button class="marker"
+ style="left:86%; top:69%;"
+ data-id="bengal"
+ aria-label="Map location 10">10</button>
 
-  <!-- 11 INDIAN OCEAN -->
-  <button class="marker"
-    style="left:69%; top:92%;"
-    data-id="ocean"
-    aria-label="Map location 11">11</button>
+<!-- 11 INDIAN OCEAN: MOVED SOUTH INTO WATER -->
+<button class="marker"
+ style="left:75%; top:95%;"
+ data-id="ocean"
+ aria-label="Map location 11">11</button>
+
+<!-- 12 MT. EVEREST: TALLEST HIMALAYAN TRIANGLE -->
+<button class="marker"
+ style="left:83%; top:31%;"
+ data-id="everest"
+ aria-label="Map location 12">12</button>
 
 </div>
-
-<!-- PROGRESS -->
 
 <div class="progress-section">
-
-  Quiz Progress
-
-  <div class="progress-bar">
-    <div class="progress-fill" id="progress-fill"></div>
-  </div>
-
+Quiz Progress
+<div class="progress-bar">
+  <div class="progress-fill" id="progress-fill"></div>
+</div>
 </div>
 
-<!-- FINAL RESULTS -->
-
 <div class="completion hidden" id="completion">
-
   <h3>Geography Challenge Complete!</h3>
-
   <p id="final-score"></p>
-
   <p id="final-message"></p>
-
   <button class="action-button" id="restart">
     Try Again
   </button>
-
 </div>
 
 <button class="action-button" id="reset">
-  Restart Quiz
+Restart Quiz
 </button>
 
 <p class="footer">
-  South Asia Geography | 11 Features | Map identification challenge
+South Asia Geography | 12 Features | Map Identification Challenge
 </p>
 
 </div>
 
 <script>
-
 (function() {
 
-  const features = {
+const features = {
+  himalayas: "Himalayas",
+  hindukush: "Hindu Kush Mountains",
+  thar: "Thar Desert",
+  indus: "Indus River",
+  ganges: "Ganges River",
+  deccan: "Deccan Plateau",
+  western: "Western Ghats",
+  eastern: "Eastern Ghats",
+  arabian: "Arabian Sea",
+  bengal: "Bay of Bengal",
+  ocean: "Indian Ocean",
+  everest: "Mt. Everest"
+};
 
-    himalayas: "Himalayas",
+const TOTAL = 12;
 
-    hindukush: "Hindu Kush Mountains",
+let questions = [];
+let currentQuestion = 0;
+let score = 0;
+let completed = 0;
+let locked = false;
 
-    thar: "Thar Desert",
+const questionName =
+  document.getElementById("question-name");
 
-    indus: "Indus River",
+const questionNumber =
+  document.getElementById("question-number");
 
-    ganges: "Ganges River",
+const feedback =
+  document.getElementById("feedback");
 
-    deccan: "Deccan Plateau",
+const scoreDisplay =
+  document.getElementById("score");
 
-    western: "Western Ghats",
+const completedDisplay =
+  document.getElementById("completed");
 
-    eastern: "Eastern Ghats",
+const progressFill =
+  document.getElementById("progress-fill");
 
-    arabian: "Arabian Sea",
+const completion =
+  document.getElementById("completion");
 
-    bengal: "Bay of Bengal",
+const markers =
+  document.querySelectorAll(".marker");
 
-    ocean: "Indian Ocean"
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
-  };
+function showQuestion() {
 
-  let questions = [];
-  let currentQuestion = 0;
-  let score = 0;
-  let completed = 0;
-  let locked = false;
-
-  const questionName =
-    document.getElementById("question-name");
-
-  const questionNumber =
-    document.getElementById("question-number");
-
-  const feedback =
-    document.getElementById("feedback");
-
-  const scoreDisplay =
-    document.getElementById("score");
-
-  const completedDisplay =
-    document.getElementById("completed");
-
-  const progressFill =
-    document.getElementById("progress-fill");
-
-  const completion =
-    document.getElementById("completion");
-
-  const markers =
-    document.querySelectorAll(".marker");
-
-  // RANDOMIZE THE QUESTION ORDER
-
-  function shuffle(array) {
-
-    for (let i = array.length - 1; i > 0; i--) {
-
-      const j = Math.floor(Math.random() * (i + 1));
-
-      [array[i], array[j]] = [array[j], array[i]];
-
-    }
-
-    return array;
-
+  if (currentQuestion >= TOTAL) {
+    finishQuiz();
+    return;
   }
 
-  // DISPLAY CURRENT QUESTION
+  locked = false;
 
-  function showQuestion() {
+  const id = questions[currentQuestion];
 
-    if (currentQuestion >= questions.length) {
-      finishQuiz();
-      return;
-    }
+  questionNumber.textContent =
+    "QUESTION " + (currentQuestion + 1) + " OF " + TOTAL;
 
-    locked = false;
+  questionName.textContent = features[id];
 
-    const id = questions[currentQuestion];
-
-    questionNumber.textContent =
-      "QUESTION " + (currentQuestion + 1) + " OF 11";
-
-    questionName.textContent = features[id];
-
-    feedback.textContent =
-      "Click the numbered circle that identifies this feature.";
-
-    markers.forEach(marker => {
-      marker.disabled = marker.classList.contains("correct");
-    });
-
-  }
-
-  // CHECK STUDENT ANSWER
-
-  function checkAnswer(id, marker) {
-
-    if (locked || marker.classList.contains("correct")) {
-      return;
-    }
-
-    const correctAnswer = questions[currentQuestion];
-
-    if (id === correctAnswer) {
-
-      locked = true;
-
-      score++;
-      completed++;
-
-      marker.classList.add("correct");
-
-      feedback.textContent =
-        "Correct! Excellent geographic identification!";
-
-      updateScore();
-
-      // MOVE TO NEXT QUESTION
-
-      setTimeout(() => {
-
-        currentQuestion++;
-
-        if (currentQuestion < 11) {
-          showQuestion();
-        } else {
-          finishQuiz();
-        }
-
-      }, 1100);
-
-    } else {
-
-      feedback.textContent =
-        "Not quite! Try another location on the map.";
-
-      marker.classList.add("incorrect");
-
-      setTimeout(() => {
-        marker.classList.remove("incorrect");
-      }, 500);
-
-    }
-
-  }
-
-  // UPDATE SCORE AND PROGRESS
-
-  function updateScore() {
-
-    scoreDisplay.textContent = score + " / 11";
-
-    completedDisplay.textContent =
-      completed + " / 11";
-
-    progressFill.style.width =
-      (completed / 11 * 100) + "%";
-
-  }
-
-  // FINISH QUIZ
-
-  function finishQuiz() {
-
-    locked = true;
-
-    questionNumber.textContent = "QUIZ FINISHED!";
-
-    questionName.textContent =
-      "You identified all 11 features!";
-
-    feedback.textContent = "";
-
-    document.getElementById("final-score").textContent =
-      "Your final score: " + score + " out of 11.";
-
-    let message = "";
-
-    if (score === 11) {
-      message = "Perfect score! Outstanding work, geographer!";
-    } else {
-      message = "Great job completing the South Asia Geography Challenge!";
-    }
-
-    document.getElementById("final-message").textContent =
-      message;
-
-    completion.classList.remove("hidden");
-
-    document.getElementById("reset").classList.add("hidden");
-
-    markers.forEach(marker => {
-      marker.disabled = true;
-    });
-
-  }
-
-  // SET UP MARKER CLICKS
+  feedback.textContent =
+    "Click the numbered circle that identifies this feature.";
 
   markers.forEach(marker => {
-
-    marker.addEventListener("click", () => {
-
-      checkAnswer(marker.dataset.id, marker);
-
-    });
-
+    marker.disabled = marker.classList.contains("correct");
   });
+}
 
-  // START OR RESTART QUIZ
+function checkAnswer(id, marker) {
 
-  function startQuiz() {
+  if (locked || marker.classList.contains("correct")) {
+    return;
+  }
 
-    questions = shuffle(Object.keys(features));
+  const correctAnswer = questions[currentQuestion];
 
-    currentQuestion = 0;
-    score = 0;
-    completed = 0;
-    locked = false;
+  if (id === correctAnswer) {
 
-    markers.forEach(marker => {
+    locked = true;
+    score++;
+    completed++;
 
-      marker.classList.remove("correct", "incorrect");
-      marker.disabled = false;
+    marker.classList.add("correct");
 
-    });
-
-    completion.classList.add("hidden");
-
-    document.getElementById("reset").classList.remove("hidden");
+    feedback.textContent =
+      "Correct! Excellent geographic identification!";
 
     updateScore();
 
-    showQuestion();
+    setTimeout(() => {
+      currentQuestion++;
+
+      if (currentQuestion < TOTAL) {
+        showQuestion();
+      } else {
+        finishQuiz();
+      }
+    }, 1100);
+
+  } else {
+
+    feedback.textContent =
+      "Not quite! Try another location on the map.";
+
+    marker.classList.add("incorrect");
+
+    setTimeout(() => {
+      marker.classList.remove("incorrect");
+    }, 500);
 
   }
+}
 
-  document.getElementById("reset")
-    .addEventListener("click", startQuiz);
+function updateScore() {
 
-  document.getElementById("restart")
-    .addEventListener("click", startQuiz);
+  scoreDisplay.textContent = score + " / " + TOTAL;
 
-  // BEGIN
-  startQuiz();
+  completedDisplay.textContent =
+    completed + " / " + TOTAL;
+
+  progressFill.style.width =
+    (completed / TOTAL * 100) + "%";
+}
+
+function finishQuiz() {
+
+  locked = true;
+
+  questionNumber.textContent = "QUIZ FINISHED!";
+
+  questionName.textContent =
+    "You identified all 12 features!";
+
+  feedback.textContent = "";
+
+  document.getElementById("final-score").textContent =
+    "Your final score: " + score + " out of " + TOTAL + ".";
+
+  document.getElementById("final-message").textContent =
+    score === TOTAL
+    ? "Perfect score! Outstanding work, geographer!"
+    : "Great job completing the South Asia Geography Challenge!";
+
+  completion.classList.remove("hidden");
+
+  document.getElementById("reset").classList.add("hidden");
+
+  markers.forEach(marker => {
+    marker.disabled = true;
+  });
+}
+
+markers.forEach(marker => {
+  marker.addEventListener("click", () => {
+    checkAnswer(marker.dataset.id, marker);
+  });
+});
+
+function startQuiz() {
+
+  questions = shuffle(Object.keys(features));
+
+  currentQuestion = 0;
+  score = 0;
+  completed = 0;
+  locked = false;
+
+  markers.forEach(marker => {
+    marker.classList.remove("correct", "incorrect");
+    marker.disabled = false;
+  });
+
+  completion.classList.add("hidden");
+
+  document.getElementById("reset").classList.remove("hidden");
+
+  updateScore();
+  showQuestion();
+}
+
+document.getElementById("reset")
+  .addEventListener("click", startQuiz);
+
+document.getElementById("restart")
+  .addEventListener("click", startQuiz);
+
+startQuiz();
 
 })();
-
 </script>
 
 </body>
